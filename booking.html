@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cab Booking Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .booking-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 40px 50px;
+      border-radius: 20px;
+      width: 420px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .booking-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .booking-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 28px;
+      color: #00ffc6;
+      text-shadow: 0 0 8px rgba(0, 255, 198, 0.6);
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #e8e8e8;
+      letter-spacing: 0.3px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      background: rgba(255, 255, 255, 0.25);
+      outline: 2px solid #00ffc6;
+    }
+
+    input::placeholder {
+      color: #cfcfcf;
+    }
+
+    button {
+      width: 100%;
+      background: linear-gradient(135deg, #00ffc6, #00b8ff);
+      border: none;
+      padding: 14px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #000;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #00b8ff, #00ffc6);
+      transform: scale(1.03);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .double {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .double input {
+      flex: 1;
+    }
+
+    @media (max-width: 480px) {
+      .booking-container {
+        width: 90%;
+        padding: 30px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="booking-container" action="insert_booking.php" method="POST">
+    <h2>Make Your Trip</h2>
+
+    <div class="form-group">
+      <label>Pick-up Location</label>
+      <input type="text" name="pickup" placeholder="Enter pick-up point (City, Airport, etc)" required>
+    </div>
+
+    <div class="form-group">
+      <label>Drop-off Location</label>
+      <input type="text" name="dropoff" placeholder="Enter drop-off point (City, Airport, etc)" required>
+    </div>
+
+    <div class="double">
+      <div>
+        <label>Pick-up Date</label>
+        <input type="date" name="pickdate" required>
+      </div>
+      <div>
+        <label>Drop-off Date</label>
+        <input type="date" name="dropdate" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Pick-up Time</label>
+      <input type="time" name="picktime" required>
+    </div>
+
+    <div class="double">
+      <div>
+        <label>Account No.</label>
+        <input type="text" name="accno" placeholder="XXXX-XXXX-XXXX" required>
+      </div>
+      <div>
+        <label>CVV</label>
+        <input type="password" name="cvv" maxlength="3" placeholder="CVV" required>
+      </div>
+    </div>
+
+    <button type="submit">Book Now</button>
+  </form>
+</body>
+</html>
